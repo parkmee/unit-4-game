@@ -19,25 +19,22 @@
             <h1 class="header-text text-center">Crystals Collector!</h1>
         </div>
         <div class="directions-box card">
-            <ul>
-                <li class="directions-text">You will be given a random number at the start of the game.</li>
-                <li class="directions-text">There are four crystals below. By clicking on a crystal you will add a
+            <ul class = "list-group list-group-flush">
+                <li class="directions-text list-group-item">You will be given a random number at the start of the game.</li>
+                <li class="directions-text list-group-item">There are four crystals below. By clicking on a crystal you will add a
                     specific amount of points to your total
                     score.</li>
-                <li class="directions-text">You win the game by matching your total score to a random number. You lose
+                <li class="directions-text list-group-item">You win the game by matching your total score to a random number. You lose
                     the game if your total score goes
                     above the random number.</li>
-                <li class="directions-text">The value of each crystal is hidden from you until you click on it.</li>
-                <li class="directions-tect">Each time the game starts, the game will change the values of each crystal.</li>
+                <li class="directions-text list-group-item">The value of each crystal is hidden from you until you click on it.</li>
+                <li class="directions-text list-group-item">Each time the game starts, the game will change the values of each crystal.</li>
             </ul>
         </div>
         <div class="row text-center">
             <div class="random-number-box col-6 border-right">
-                <h2 id="target-number-text">Target: </h2>
             </div>
             <div class="score-box col-6">
-                <p class="score-text" id="wins-text">Wins: 0</p>
-                <p class="score-text" id="losses-text">Losses: 0</p>
             </div>
         </div>
         <div class="crystal-box">
@@ -47,9 +44,15 @@
             <img src="assets/images/red_crystal.jpg" class="crystal" id="red-crystal">
             <br><br>
         </div>
-        <div class="counter-header-box text-center row">
-            
-            <h2 class="counter-header col-12" id="counter-text">Your total score is: </h2>
+        <div class="counter-header-box row text-center">
+            <div class="col-8 border-right">
+                <h2 class="col-12" id="target-number-text">Target: </h2>
+                <h2 class="counter-header col-12" id="counter-text">Your total score is: </h2>
+            </div>
+            <div class="col-4 text-center">
+                    <p class="score-text" id="wins-text">Wins: 0</p>
+                    <p class="score-text" id="losses-text">Losses: 0</p>
+            </div>
         </div>
     </div>
 </body>

@@ -1,5 +1,32 @@
 .crystal {
-    height: 160px;
+    height: 155px;
+}
+
+.container {
+    width: 720px;
+}
+
+.header-text {
+    text-shadow: 2px 2px teal;
+}
+
+.card {
+    opacity: 0.85;
+    width: 675px;
+}
+
+.counter-header-box {
+    background-color: white;
+    width: 675px;
+    position: relative;
+    top: -12px;
+    right: -16px;
+    opacity: 0.80;
+}
+
+img {
+    opacity: 0.75;
+    margin: 10px 10px 0px 0px;
 }
 
 p {
@@ -7,7 +34,11 @@ p {
 }
 
 h2 {
-    height: 100%;
-    padding-top: 15px;
     font-weight: normal;
+}
+
+body {
+    background-image: url("../images/crystal-background.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }

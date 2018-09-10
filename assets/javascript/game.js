@@ -9,6 +9,8 @@ $(document).ready(function () {
     var targetNumber = "";
     var counterNumber = 0;
     var newGame = true;
+    var crystalUpperLimit = 12
+    var crystalLowerLimit = 1
 
     var targetNumberText = $("#target-number-text");
     var winsText = $("#wins-text");
@@ -16,15 +18,14 @@ $(document).ready(function () {
     var counterText = $("#counter-text");
     var crystal = $(".crystal");
 
-
     function pickNumbers() {
         if (newGame) {
             // pick random numbers
-            targetNumber = Math.floor(Math.random() * 100);
-            blue = Math.floor(Math.random() * 9 + 1);
-            clear = Math.floor(Math.random() * 9 + 1);
-            purple = Math.floor(Math.random() * 9 + 1);
-            red = Math.floor(Math.random() * 9 + 1);
+            targetNumber = Math.floor(Math.random() * 101 + 19);
+            blue = Math.floor(Math.random() * crystalUpperLimit - crystalLowerLimit) + crystalLowerLimit;
+            clear = Math.floor(Math.random() * crystalUpperLimit - crystalLowerLimit) + crystalLowerLimit;
+            purple = Math.floor(Math.random() * crystalUpperLimit - crystalLowerLimit) + crystalLowerLimit;
+            red = Math.floor(Math.random() * crystalUpperLimit - crystalLowerLimit) + crystalLowerLimit;
 
             // display targetNumber
             targetNumberText.text("Target: " + targetNumber);
@@ -36,38 +37,57 @@ $(document).ready(function () {
         }
     }
 
-    
-
-
-
     // on-click of crystal
     crystal.on("click", function () {
 
         // assign random numeric values to crystals and target number
         pickNumbers();
-
-        // calculate and display counter value
-
-        // if counter equals target number, tally win and clear value of crystals and target number
-
-        // otherwise, if counter exceeds target number, tally loss and clear value of crystals and target number
-
-        // restart game
-
     })
-    var clearCrystal = $("#clear-crystal");
-    var purpleCrystal = $("#purple-crystal");
-    var redCrystal = $("#red-crystal");
+
+    function printCounter() {
+        counterText.html("Your total score is: " + counterNumber);
+    }
 
     $("#blue-crystal").on("click", function () {
         counterNumber = counterNumber + blue;
         console.log(counterNumber);
-        counterText.html("Your total score is: " + counterNumber);
-
+        printCounter();
     });
 
     $("#clear-crystal").on("click", function () {
-        
-    })
+        counterNumber = counterNumber + clear;
+        console.log(counterNumber);
+        printCounter();
+    });
 
-})
+    $("#purple-crystal").on("click", function () {
+        counterNumber = counterNumber + purple;
+        console.log(counterNumber);
+        printCounter();
+    });
+
+    $("#red-crystal").on("click", function () {
+        counterNumber = counterNumber + red;
+        console.log(counterNumber);
+        printCounter();
+    });
+
+    crystal.on("click", function() {
+        if (counterNumber > targetNumber) {
+            losses++;
+            lossesText.text("Losses: " + losses);
+            reset();
+        };
+        
+        if(counterNumber === targetNumber) {
+            wins++;
+            winsText.text("Wins: " + wins);
+            reset();
+        }
+    });
+
+    function reset() {
+        newGame = true;
+        counterNumber = 0;
+    };
+});
