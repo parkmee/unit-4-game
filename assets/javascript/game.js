@@ -22,7 +22,7 @@ $(document).ready(function () {
     function pickNumbers() {
         if (newGame) {
             // pick random numbers
-            targetNumber = Math.floor(Math.random() * 101 + 19);
+            targetNumber = Math.floor(Math.random() * 101) + 19;
             blue = Math.floor(Math.random() * crystalUpperLimit - crystalLowerLimit) + crystalLowerLimit;
             clear = Math.floor(Math.random() * crystalUpperLimit - crystalLowerLimit) + crystalLowerLimit;
             purple = Math.floor(Math.random() * crystalUpperLimit - crystalLowerLimit) + crystalLowerLimit;
