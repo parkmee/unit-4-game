@@ -17,6 +17,7 @@ $(document).ready(function () {
     var lossesText = $("#losses-text");
     var counterText = $("#counter-text");
     var crystal = $(".crystal");
+    var gameMessage = $("#game-message");
 
     function pickNumbers() {
         if (newGame) {
@@ -33,7 +34,8 @@ $(document).ready(function () {
             console.log("target: " + targetNumber + " | blue: " + blue + " | clear: " + clear + " | purple: " + purple + " | red: " + red);
 
             newGame = false;
-            counterText.html("<h2>Your total score is: </h2>")
+            counterText.html("<h2>Total Score: </h2>")
+            gameMessage.html("");
         }
     }
 
@@ -45,7 +47,7 @@ $(document).ready(function () {
     })
 
     function printCounter() {
-        counterText.html("Your total score is: " + counterNumber);
+        counterText.html("Total Score: " + counterNumber);
     }
 
     $("#blue-crystal").on("click", function () {
@@ -77,12 +79,14 @@ $(document).ready(function () {
             losses++;
             lossesText.text("Losses: " + losses);
             reset();
+            gameMessage.html("<h2>You lose. Try again!</h2>")
         };
         
         if(counterNumber === targetNumber) {
             wins++;
             winsText.text("Wins: " + wins);
             reset();
+           gameMessage.html("<h2>Winner!</h2>")
         }
     });
 
