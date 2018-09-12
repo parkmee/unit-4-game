@@ -50,10 +50,12 @@ $(document).ready(function () {
         pickNumbers();
     })
 
+    // create function to print the counterNumber based on crystals clicked
     function printCounter() {
         counterText.html(counterNumber);
     }
 
+    // per crystal, create on click function for tallying counterNumber and print the total
     $("#blue-crystal").on("click", function () {
         counterNumber = counterNumber + blue;
         console.log(counterNumber);
@@ -78,24 +80,45 @@ $(document).ready(function () {
         printCounter();
     });
 
-    crystal.on("click", function() {
+    // when any crystal is clicked
+    crystal.on("click", function () {
+
+        // check to determine if counterNumber exceeds targetNumber resulting in loss
         if (counterNumber > targetNumber) {
+
+            // increment number of losses and print
             losses++;
             lossesText.text(losses);
+
+            // run reset function
             reset();
+
+            // output message stating loss
             gameMessage.html("<h2>You lose. Try again!</h2>")
         };
-        
-        if(counterNumber === targetNumber) {
+
+        // check to see if counterNumber equals targetNumber, resulting in win
+        if (counterNumber === targetNumber) {
+
+            // increment number of wins and print
             wins++;
             winsText.text(wins);
+
+            // run reset function
             reset();
-           gameMessage.html("<h2>Winner!</h2>")
+
+            // output message stating win
+            gameMessage.html("<h2>Winner!</h2>")
         }
     });
 
+    // function to reset game after win/loss
     function reset() {
+
+        // return newGame status to true to pick new random numbers
         newGame = true;
+
+        // reset counterNumber to 0
         counterNumber = 0;
     };
 });
