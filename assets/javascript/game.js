@@ -29,12 +29,16 @@ $(document).ready(function () {
             red = Math.floor(Math.random() * crystalUpperLimit - crystalLowerLimit) + crystalLowerLimit;
 
             // display targetNumber
-            targetNumberText.text("Target: " + targetNumber);
+            targetNumberText.text(targetNumber);
 
+            // display chosen random values in console
             console.log("target: " + targetNumber + " | blue: " + blue + " | clear: " + clear + " | purple: " + purple + " | red: " + red);
 
+            // set new game flag to false so the pickNumbers function does not run
             newGame = false;
-            counterText.html("<h2>Total Score: </h2>")
+
+            // reset output in counterText and gameMessage
+            counterText.html("")
             gameMessage.html("");
         }
     }
@@ -47,7 +51,7 @@ $(document).ready(function () {
     })
 
     function printCounter() {
-        counterText.html("Total Score: " + counterNumber);
+        counterText.html(counterNumber);
     }
 
     $("#blue-crystal").on("click", function () {
@@ -77,14 +81,14 @@ $(document).ready(function () {
     crystal.on("click", function() {
         if (counterNumber > targetNumber) {
             losses++;
-            lossesText.text("Losses: " + losses);
+            lossesText.text(losses);
             reset();
             gameMessage.html("<h2>You lose. Try again!</h2>")
         };
         
         if(counterNumber === targetNumber) {
             wins++;
-            winsText.text("Wins: " + wins);
+            winsText.text(wins);
             reset();
            gameMessage.html("<h2>Winner!</h2>")
         }

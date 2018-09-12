@@ -6,6 +6,12 @@
     width: 720px;
 }
 
+.card-header {
+    padding: 12px 0px;
+    background-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0,0,0,0);
+}
+
 .header-text {
     text-shadow: 2px 2px teal;
     font-family: Chango;
